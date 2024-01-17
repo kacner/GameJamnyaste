@@ -587,9 +587,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 519420031}
   bullet: {fileID: 7760062070758501810, guid: a2d24973429e16447be5250ed1ac0f9f, type: 3}
+  bullet2: {fileID: 7024780091146367616, guid: 6365e71e1380f9243a3b53e2efe836a8, type: 3}
   bulletTransform: {fileID: 1088469608}
   canFire: 1
+  canFire2: 1
   timeBetweenFireing: 0.3
+  timeBetweenFireing2: 2
 --- !u!1 &546875201
 GameObject:
   m_ObjectHideFlags: 0
