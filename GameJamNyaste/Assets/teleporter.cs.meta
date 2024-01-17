@@ -3,7 +3,8 @@ guid: afdc2bfc1bcfa4b4eb2119711cb05407
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - slimePrefab: {fileID: 8228178203937292995, guid: cd1e0435067b18440ab4cdcf04ac9df2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
