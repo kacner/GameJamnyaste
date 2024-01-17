@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Teleporter : MonoBehaviour
+public class teleporter : MonoBehaviour
 {
     public GameObject slimePrefab;  // Reference to the slime prefab
     public int numberOfSlimes = 12;  // Number of slimes to spawn
@@ -35,13 +35,20 @@ public class Teleporter : MonoBehaviour
             Vector3 spawnPosition = new Vector3(randomX, transform.position.y, transform.position.z);
 
             // Instantiate the slime at the random position
-            Instantiate(slimePrefab, spawnPosition, Quaternion.identity);
+            GameObject slime = Instantiate(slimePrefab, spawnPosition, Quaternion.identity);
 
             // Wait for the specified interval before the next spawn
             yield return new WaitForSeconds(timeDelay);
+
+            // Check if the spawned slime is destroyed
+            if (slime == null)
+            {
+                // If the slime is destroyed, reduce the iteration count to spawn a replacement
+                i--;
+            }
         }
 
-        // Teleporter activation complete
+        // Teleporter deactivation (optional)
         isActivated = false;
     }
 }
