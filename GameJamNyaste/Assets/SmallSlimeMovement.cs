@@ -13,7 +13,7 @@ public class SmallSlimeMovement : MonoBehaviour
     public float maxForce = 10f;
     public float knockbackAngle = 45f;
     public Animator animator;
-
+    public GameObject deathEffect;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -65,6 +65,7 @@ public class SmallSlimeMovement : MonoBehaviour
 
     void HandleSlimeDeath()
     {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
