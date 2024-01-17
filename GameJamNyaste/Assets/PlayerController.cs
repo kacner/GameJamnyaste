@@ -35,6 +35,14 @@ public class PlayerController : MonoBehaviour
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
 
+    [Header("Health System")]
+    [SerializeField] private float maxHealth = 100f;
+    private float currentHealth;
+
+    [Header("Damage Values")]
+    [SerializeField] private float enemyDamage = 10f;
+    [SerializeField] private float bossDamage = 25f;
+
     [SerializeField] private float m_MaxSpeed = 10f;
     [SerializeField] private float m_Acceleration = 5f;
 
@@ -66,6 +74,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
+        currentHealth = maxHealth;
     }
 
     void FixedUpdate()
@@ -241,7 +250,35 @@ public class PlayerController : MonoBehaviour
             dashTimer -= Time.deltaTime;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check for collision with objects tagged as "Enemy"
+        if (other.CompareTag("Enemy"))
+        {
+            TakeDamage(enemyDamage);
+        }
+        // Check for collision with objects tagged as "Boss"
+        else if (other.CompareTag("Boss"))
+        {
+            TakeDamage(bossDamage);
+        }
+    }
+
+    private void TakeDamage(float damage)
+    {
+        // Subtract damage from current health
+        currentHealth -= damage;
+
+        // Implement any additional logic here, such as updating UI or triggering effects
+
+        Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}");
+
+        // Check for player defeat
+        if (currentHealth <= 0)
+        {
+            // Implement player death logic here
+            Debug.Log("Player is defeated!");
+        }
+    }
 }
-
-
-
