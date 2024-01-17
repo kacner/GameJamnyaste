@@ -10,20 +10,18 @@ public class Movements : MonoBehaviour
     public bool jump = false;
     public bool crouch = false;
     private Rigidbody2D m_Rigidbody2D;
-  //  public Animator animator;
-   // public StunPike StunPikeReference;
+    public Animator animator;
+
     private bool Stunning;
     private bool CurrentlyAttacking;
     void Update()
     {
-        //Stunning = StunPikeReference.stunning;
-        //CurrentlyAttacking = StunPikeReference.IsCurrentlyAttacking;
 
-        /*animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         animator.SetBool("Crouch", crouch);
-        animator.SetBool("Stunning", Stunning);
-        animator.SetBool("Attacking", CurrentlyAttacking);
-        */
+
+
+        
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         if (Stunning)

@@ -15,7 +15,7 @@ public class meatman : MonoBehaviour
     private bool isHittingWall;
     private bool isGrounded;
     private float jumpTimer;
-
+    int HP = 5;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -81,5 +81,24 @@ public class meatman : MonoBehaviour
     private void ResetJumpTimer()
     {
         jumpTimer = Random.Range(minJumpInterval, maxJumpInterval);
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Check if the colliding object has the specified tag
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            HandleSlimeDeath();
+        }
+    }
+    void HandleSlimeDeath()
+    {
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            HP--;
+        }
     }
 }

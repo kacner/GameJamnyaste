@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     // Sprinting Settings
     [Header("Sprinting Settings")]
     [SerializeField] private float sprintMultiplier = 1.3f;
-
+    public Animator animator;
     // Dash Settings
     [Header("Dash Settings")]
     [SerializeField] private float dashDistance = 5f;
@@ -240,6 +240,7 @@ public class PlayerController : MonoBehaviour
         {
             dashTimer -= Time.deltaTime;
         }
+        animator.SetBool("IsJumping", m_Grounded);
     }
 }
 
