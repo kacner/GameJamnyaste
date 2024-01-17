@@ -9,7 +9,7 @@ public class Batmovement : MonoBehaviour
     private Rigidbody2D rb;
     private Transform player;
     private Vector2 moveDirection;
-
+    public GameObject deathEffect;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -45,6 +45,7 @@ public class Batmovement : MonoBehaviour
 
     void HandleSlimeDeath()
     {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

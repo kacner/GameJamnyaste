@@ -12,6 +12,7 @@ public class SlimeMovement : MonoBehaviour
     public Animator animator;
 
     public GameObject deathPrefab;
+    public GameObject deathEffect;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class SlimeMovement : MonoBehaviour
     {
         Instantiate(deathPrefab, transform.position, Quaternion.identity);
         Instantiate(deathPrefab, transform.position, Quaternion.identity);
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

@@ -155,6 +155,7 @@ MonoBehaviour:
   maxForce: 10
   knockbackAngle: 45
   animator: {fileID: 7778431995338727508}
+  deathEffect: {fileID: 878868712115204460, guid: 11015ce5cf36b4a4db1094c18e252c13, type: 3}
 --- !u!95 &7778431995338727508
 Animator:
   serializedVersion: 4
