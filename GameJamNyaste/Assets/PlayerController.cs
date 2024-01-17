@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -77,6 +79,15 @@ public class PlayerController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+
+    private void ReloadScene()
+    {
+        // Get the current scene index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Reload the current scene
+        SceneManager.LoadScene(currentSceneIndex);
+    }
     void FixedUpdate()
     {
         bool wasGrounded = m_Grounded;
@@ -279,6 +290,8 @@ public class PlayerController : MonoBehaviour
         {
             // Implement player death logic here
             Debug.Log("Player is defeated!");
+
+            ReloadScene();
         }
     }
 }
