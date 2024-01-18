@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,21 +35,13 @@ public class PlayerController : MonoBehaviour
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
 
-    [Header("Health System")]
-    [SerializeField] private float maxHealth = 100f;
-    private float currentHealth;
-
-    [Header("Damage Values")]
-    [SerializeField] private float enemyDamage = 10f;
-    [SerializeField] private float bossDamage = 25f;
-
     [SerializeField] private float m_MaxSpeed = 10f;
     [SerializeField] private float m_Acceleration = 5f;
 
     // Sprinting Settings
     [Header("Sprinting Settings")]
     [SerializeField] private float sprintMultiplier = 1.3f;
-
+    public Animator animator;
     // Dash Settings
     [Header("Dash Settings")]
     [SerializeField] private float dashDistance = 5f;
@@ -76,18 +66,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         mainCam = Camera.main;
-        currentHealth = maxHealth;
     }
 
-
-    private void ReloadScene()
-    {
-        // Get the current scene index
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        // Reload the current scene
-        SceneManager.LoadScene(currentSceneIndex);
-    }
     void FixedUpdate()
     {
         bool wasGrounded = m_Grounded;
@@ -260,38 +240,9 @@ public class PlayerController : MonoBehaviour
         {
             dashTimer -= Time.deltaTime;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // Check for collision with objects tagged as "Enemy"
-        if (other.CompareTag("Enemy"))
-        {
-            TakeDamage(enemyDamage);
-        }
-        // Check for collision with objects tagged as "Boss"
-        else if (other.CompareTag("Boss"))
-        {
-            TakeDamage(bossDamage);
-        }
-    }
-
-    private void TakeDamage(float damage)
-    {
-        // Subtract damage from current health
-        currentHealth -= damage;
-
-        // Implement any additional logic here, such as updating UI or triggering effects
-
-        Debug.Log($"Player took {damage} damage. Current Health: {currentHealth}");
-
-        // Check for player defeat
-        if (currentHealth <= 0)
-        {
-            // Implement player death logic here
-            Debug.Log("Player is defeated!");
-
-            ReloadScene();
-        }
+        animator.SetBool("IsJumping", m_Grounded);
     }
 }
+
+
+
