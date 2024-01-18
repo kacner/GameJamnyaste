@@ -16,6 +16,8 @@ public class meatman : MonoBehaviour
     private bool isGrounded;
     private float jumpTimer;
     int HP = 5;
+    public Animator animator;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,6 +26,7 @@ public class meatman : MonoBehaviour
 
     private void Update()
     {
+        animator.SetBool("Grounded", isGrounded);
         // Check if the enemy is on the ground
         isGrounded = Physics2D.OverlapCircle(transform.position, 0.1f, groundLayer);
 
