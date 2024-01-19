@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Enemy
   - FakePlayer
+  - BossEnemy
   layers:
   - Default
   - TransparentFX
