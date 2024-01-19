@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -54,7 +55,7 @@ public class HealthManager : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("killed");
+        SceneManager.LoadScene("DeathScene");
     }
 
 }

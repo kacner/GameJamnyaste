@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WallOfFlesh.unity
     guid: f2494be3470fd2f408667784dde7cda1
+  - enabled: 1
+    path: Assets/Scenes/DeathScene.unity
+    guid: c26f381cc14a51143b735c43a0b6063f
   m_configObjects: {}
