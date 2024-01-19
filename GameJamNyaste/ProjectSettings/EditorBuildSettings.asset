@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Levelett.unity
+    guid: 3135be6d7b4d80840b26aaf1e5da4b6e
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99e452b4e1c4f59409bfc796203f6b6e
+  - enabled: 1
+    path: Assets/Scenes/FladdermusLevel.unity
+    guid: a9f642a86d829fa4294def65b2c2256d
+  - enabled: 1
+    path: Assets/Scenes/WallOfFlesh.unity
+    guid: f2494be3470fd2f408667784dde7cda1
   m_configObjects: {}
